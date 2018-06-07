@@ -3,6 +3,8 @@
  */
 package edu.mum.cs.projects.library;
 
+import edu.mum.cs.projects.library.domain.entity.Book;
+
 /**
  * @author carlos
  *
@@ -13,11 +15,15 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-<<<<<<< HEAD
-=======
-		System.out.println("I'm in main method");
->>>>>>> 6d45de31061c9c16551ac2f3a284096d56399985
+		//adding Book to existing collection
+	}
+
+	private static boolean addBookToCollection() {
+		return false;
+	}
+
+	private static Book addBookToCollection() {
+		return null;
 	}
 
 }
