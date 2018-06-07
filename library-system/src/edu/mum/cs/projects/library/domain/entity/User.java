@@ -3,11 +3,22 @@ package edu.mum.cs.projects.library.domain.entity;
 import java.util.List;
 
 public class User  extends Person {
+	
+	public User(String username, String password) {
+		super();
+		this.user = username;
+		this.password = password;
+	}
+	public User(String username) {
+		super();
+		this.user = username;
+	}
 	public User(String firstName, String lastName, String phoneNumber, Address address, String code, List<LibraryRole> libraryRoles) {
 		super(firstName, lastName, phoneNumber, address);
 		this.setCode(code);
 		this.setLibraryRoles(libraryRoles);
 	}
+	
 
 	/**
 	 * @return the code
@@ -36,6 +47,23 @@ public class User  extends Person {
 	public void setLibraryRoles(List<LibraryRole> libraryRoles) {
 		this.libraryRoles = libraryRoles;
 	}
+
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 
 	private String code;
 	private List<LibraryRole> libraryRoles;

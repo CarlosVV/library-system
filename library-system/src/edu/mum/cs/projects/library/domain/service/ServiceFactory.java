@@ -6,6 +6,7 @@ import edu.mum.cs.projects.library.domain.entity.User;
 public class ServiceFactory {
 	private volatile static CheckoutService checkoutService;
 	private volatile static CheckoutDataService checkoutDataService;
+	private volatile static UserService userService;
 	public static CheckoutService getCheckoutService() {
 		if(null == checkoutService) {
 			synchronized(ServiceFactory.class) {
@@ -26,4 +27,15 @@ public class ServiceFactory {
 		}
 		return checkoutDataService;
 	}
+	public static UserService getUserService() {
+		if(null == userService) {
+			synchronized(ServiceFactory.class) {
+				if(null == userService) {
+					userService = new UserServiceImpl();
+				}
+			}
+		}
+		return userService;
+	}
+	
 }

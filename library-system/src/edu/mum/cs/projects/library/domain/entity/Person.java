@@ -5,6 +5,10 @@ public class Person {
 	private String lastName;
 	private String phoneNumber;
 	private Address address;
+	
+	public Person() {
+		
+	}
 	public Person(String firstName, String lastName, String phoneNumber, Address address) {
 		super();
 		this.firstName = firstName;
