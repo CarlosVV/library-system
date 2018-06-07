@@ -3,13 +3,19 @@
  */
 package edu.mum.cs.projects.library;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.mum.cs.projects.library.domain.entity.Address;
 import edu.mum.cs.projects.library.domain.entity.Book;
 import edu.mum.cs.projects.library.domain.entity.BookCopy;
+import edu.mum.cs.projects.library.domain.entity.LibraryRole;
 import edu.mum.cs.projects.library.domain.entity.User;
 import edu.mum.cs.projects.library.domain.entity.dto.CheckAvailabilityResult;
 import edu.mum.cs.projects.library.domain.service.CheckoutService;
 import edu.mum.cs.projects.library.domain.service.ServiceFactory;
+import edu.mum.cs.projects.library.domain.service.UserService;
 
 /**
  * @author carlos
@@ -17,19 +23,68 @@ import edu.mum.cs.projects.library.domain.service.ServiceFactory;
  */
 public class Main {
 	private static CheckoutController checkoutController;
-
+	private static UserController userController;
 	/**
 	 * @param args
 	 */
+	static {
+		loadUserToMemory();
+	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		System.out.println("Library System");
 
 		// 1. Login
+		validateUser("master","123456");
 
-		// 2. Checkout Book
+		// 3. Checkout Book
 		testCheckoutbook();
+	}
+	private static void loadUserToMemory() {
+		// TODO Auto-generated method stub
+		List<User> userList = new ArrayList<>();
+		LibraryRole admin = new LibraryRole("admin","admin");
+		LibraryRole librarian = new LibraryRole("librarian","librarian");
+		
+		List<LibraryRole> role1 = new ArrayList<>();
+		role1.add(admin);
+		List<LibraryRole> role2 = new ArrayList<>();
+		role2.add(librarian);
+		List<LibraryRole> role3 = new ArrayList<>();
+		role3.add(admin);
+		role3.add(librarian);
+		
+		userList.add(new User("admin","123456",role1));
+		userList.add(new User("librarian","123456",role2));
+		userList.add(new User("master","123456",role3));
+		
+	     DataRecords.setUsers(userList);
+		
+	}
+	public static void validateUser(String userID, String Password) {
+		
+		System.out.println("Creating User Service");
+		UserService userService = ServiceFactory.getUserService();
+		
+		System.out.println("Creating User Controller");
+		userController = new UserController(userService);
+		
+		if (userController.validateUser(userID, Password))
+			{
+				System.out.println("Login correctly");
+				List<LibraryRole> roles = userController.roles(userID);
+				if (roles == null) {
+					System.out.println(userID + " no role");
+				}
+				else {
+					System.out.print("User '"+ userID +"' containts role:");
+					for(LibraryRole r: roles) {
+						System.out.print(r.getName() + " ");
+					}
+					System.out.println();
+				}
+			}
+		else
+			System.out.println("Invalid UserID or Password");
 	}
 
 	public static void testCheckoutbook() {
