@@ -16,6 +16,10 @@ public class DataRecords {
 		
 		return users;
 	}
+	
+	public static void setUsers(List<User> users) {
+		DataRecords.users = users;
+	}
 	public static void addMember(User user) {
 		
 		users.add(user);
