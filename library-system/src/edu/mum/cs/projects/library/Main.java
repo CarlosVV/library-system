@@ -26,14 +26,20 @@ public class Main {
 		// 1. Login
 		
 		// 2. Checkout Book
+		testCheckoutbook();
 	}
 	
 	public static void testCheckoutbook() {
+		System.out.println("Creating Checkout Service");
 		CheckoutService checkoutService = ServiceFactory.getCheckoutService();
+		
+		System.out.println("Creating Checkout Controller");
 		checkoutController = new CheckoutController(checkoutService);
 		Address address = new Address(null, null, null, null);
 		User member = new User("Carlos ", "Valderrama", "", null, null, null);
 		BookCopy bookCopy = null;
+		
+		System.out.println("Calling Checkout Book");
 		checkoutController.CheckoutBook(member, bookCopy);
 	}
 	
