@@ -1,5 +1,5 @@
 package edu.mum.cs.projects.library.domain.entity;
 
-public class Librarian {
+public class Librarian extends LibraryRole {
 
 }
