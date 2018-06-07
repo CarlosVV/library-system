@@ -9,7 +9,7 @@ import edu.mum.cs.projects.library.domain.entity.User;
 
 public class UserServiceImpl implements UserService {
 
-	UserDataAccess userDataAccess = new UserDataAccess();
+	UserDataAccess userDataAccess = ServiceFactory.getUserDataAccessService();
 	@Override
 	public boolean validateUser(User user) {
 		// TODO Auto-generated method stub

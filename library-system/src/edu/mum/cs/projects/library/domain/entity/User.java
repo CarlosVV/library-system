@@ -13,6 +13,12 @@ public class User  extends Person {
 		super();
 		this.user = username;
 	}
+	public User(String username, String password, List<LibraryRole> libraryRoles) {
+		super();
+		this.user = username;
+		this.password = password;
+		this.libraryRoles = libraryRoles;
+	}
 	public User(String firstName, String lastName, String phoneNumber, Address address, String code, List<LibraryRole> libraryRoles) {
 		super(firstName, lastName, phoneNumber, address);
 		this.setCode(code);

@@ -6,7 +6,7 @@ import edu.mum.cs.projects.library.domain.service.CheckoutService;
 
 public class CheckoutController {
 	private CheckoutService checkoutService;
-	private CheckoutController(CheckoutService checkoutService) {
+	CheckoutController(CheckoutService checkoutService) {
 		this.checkoutService = checkoutService;
 	}
 	
