@@ -1,7 +1,8 @@
 package edu.mum.cs.projects.library.domain.entity;
 
 public class Author extends Person {
-	public Author(String firstName, String lastName, String phoneNumber, Address address, String credentials, String bio) {
+	public Author(String firstName, String lastName, String phoneNumber, Address address, 
+			String credentials, String bio) {
 		super(firstName, lastName, phoneNumber, address);
 		this.credentials = credentials;
 		this.bio = bio;		
