@@ -1,11 +1,12 @@
 package edu.mum.cs.projects.library.domain.service;
 
+import edu.mum.cs.projects.library.dataaccess.BookDataService;
 import edu.mum.cs.projects.library.domain.entity.Book;
 
 public class BookServiceImpl implements BookService<Book> {
-	
-	public BookServiceImpl() {
-		
+	private BookDataService<Book> bookDataService;
+	public BookServiceImpl(BookDataService<Book> bookDataService) {
+		this.bookDataService = bookDataService;
 	}
 	@Override
 	public Book searchBookByISBN(String isbn) {

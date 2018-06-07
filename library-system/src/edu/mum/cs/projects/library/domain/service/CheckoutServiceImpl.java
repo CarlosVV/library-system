@@ -4,11 +4,13 @@ import edu.mum.cs.projects.library.domain.entity.BookCopy;
 import edu.mum.cs.projects.library.domain.entity.User;
 
 public class CheckoutServiceImpl implements CheckoutService {
-
+	private CheckoutDataService checkoutDataService;
+	CheckoutServiceImpl(CheckoutDataService checkoutDataService) {
+		this.checkoutDataService = checkoutDataService;
+	}
 	@Override
 	public void checkoutBook(User member, BookCopy bookCopy) {
-		// TODO Auto-generated method stub
-		
+//		checkoutDataService.checkoutBookCopy(member, bookCopy);		
 	}
 
 }
