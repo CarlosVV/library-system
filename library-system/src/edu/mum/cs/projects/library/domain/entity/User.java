@@ -39,4 +39,6 @@ public class User  extends Person {
 
 	private String code;
 	private List<LibraryRole> libraryRoles;
+	private String user;
+	private String password;
 }
